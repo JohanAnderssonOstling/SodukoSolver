@@ -1,18 +1,22 @@
+board = []
 
+def solve(board_to_solve):
+    global board
+    board = board_to_solve
+    _solve()
+    return board
 
-def solve(board):
+def _solve():
     for row in range(9):
         for col in range(9):
             if board[row][col] == 0:
                 for value in range(1, 10):
                     if test_constraints(col, row, value, board):
                         board[row][col] = value
-                        board = solve(board)
+                        if solve(board):
+                            return True
                         board[row][col] = 0
-
-                return board
-    print(board)
-    return board
+    return False
 
 
 def test_constraints(test_col, test_row, value, board):
