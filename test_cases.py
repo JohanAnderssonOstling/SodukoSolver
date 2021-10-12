@@ -22,6 +22,6 @@ def run_tests():
     print("Original board\t Board solved with solver\t Facit board")
     for test_board, solved_board in zip(test_boards, solved_boards):
 
-        print(solver.solve(board_util.get_board(test_board)))
+        print(board_util.board_to_string(solver.solve(board_util.get_board(test_board))) == solved_board)
 
         #print(solver_board == solved_board)

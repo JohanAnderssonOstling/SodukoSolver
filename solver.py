@@ -6,6 +6,7 @@ def solve(board_to_solve):
     _solve()
     return board
 
+
 def _solve():
     for row in range(9):
         for col in range(9):
@@ -13,11 +14,11 @@ def _solve():
                 for value in range(1, 10):
                     if test_constraints(col, row, value, board):
                         board[row][col] = value
-                        if solve(board):
+                        if _solve():
                             return True
                         board[row][col] = 0
-    return False
-
+                return False
+    return True
 
 def test_constraints(test_col, test_row, value, board):
     for col in range(9):
