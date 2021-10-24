@@ -1,6 +1,5 @@
-import board_util
+import util
 import solver
-
 
 def run_tests():
     #Fem första testfall från https://www.kaggle.com/bryanpark/sudoku?select=sudoku.csv
@@ -20,8 +19,6 @@ def run_tests():
         "465912378189473562327568149738645291954821637216397854573284916642159783891736425"
     ]
     print("Original board\t Board solved with solver\t Facit board")
+
     for test_board, solved_board in zip(test_boards, solved_boards):
-
-        print(board_util.board_to_string(solver.solve(board_util.get_board(test_board))) == solved_board)
-
-        #print(solver_board == solved_board)
+        print(util.board_to_string(solver.solve(util.get_board(test_board))) == solved_board)
